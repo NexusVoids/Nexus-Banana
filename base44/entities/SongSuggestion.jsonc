@@ -1,0 +1,40 @@
+{
+  "name": "SongSuggestion",
+  "type": "object",
+  "properties": {
+    "song_title": {
+      "type": "string",
+      "description": "Title of the suggested song"
+    },
+    "youtube_url": {
+      "type": "string",
+      "description": "YouTube URL of the song"
+    },
+    "submitter_name": {
+      "type": "string",
+      "description": "Name of the person suggesting"
+    },
+    "is_clean": {
+      "type": "boolean",
+      "default": true,
+      "description": "Confirms the song is clean/no swears"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "super_approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status - super_approved becomes named jam"
+    }
+  },
+  "required": [
+    "song_title",
+    "youtube_url",
+    "submitter_name",
+    "is_clean"
+  ]
+}

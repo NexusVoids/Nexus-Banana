@@ -1,0 +1,85 @@
+{
+  "name": "UpdateLog",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Version number e.g. v1.2.3"
+    },
+    "title": {
+      "type": "string",
+      "description": "Update title"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of changes in this update",
+      "default": []
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "major",
+        "minor",
+        "patch",
+        "hotfix"
+      ],
+      "default": "minor"
+    },
+    "published_by": {
+      "type": "string",
+      "description": "Name of the person who published this update"
+    },
+    "proposal_text": {
+      "type": "string",
+      "description": "Original plain-English proposal from AI or user"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "approved",
+      "description": "Approval status \u2014 pending proposals go through a community poll before going live"
+    },
+    "upvotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Local user IDs who upvoted this proposal"
+    },
+    "downvotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Local user IDs who downvoted this proposal"
+    },
+    "is_core": {
+      "type": "boolean",
+      "default": false,
+      "description": "Core mechanic \u2014 protected from deletion, cannot be removed"
+    }
+  },
+  "required": [
+    "version",
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {},
+    "delete": {
+      "data.is_core": {
+        "$ne": true
+      }
+    }
+  }
+}

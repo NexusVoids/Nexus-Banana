@@ -1,0 +1,60 @@
+{
+  "name": "SuggestionItem",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "song",
+        "bug",
+        "feature",
+        "game",
+        "rule",
+        "event",
+        "other"
+      ],
+      "default": "other",
+      "description": "Category of the suggestion"
+    },
+    "title": {
+      "type": "string",
+      "description": "Short title of the suggestion"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description"
+    },
+    "submitter_name": {
+      "type": "string",
+      "description": "Name of the submitter"
+    },
+    "youtube_url": {
+      "type": "string",
+      "description": "YouTube URL (for song suggestions)"
+    },
+    "is_clean": {
+      "type": "boolean",
+      "default": true,
+      "description": "Song is clean/appropriate (for song category)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "in_progress"
+      ],
+      "default": "pending"
+    },
+    "upvotes": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "category",
+    "title",
+    "submitter_name"
+  ]
+}

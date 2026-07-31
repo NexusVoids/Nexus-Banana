@@ -1,0 +1,64 @@
+{
+  "name": "Book",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Book title"
+    },
+    "author": {
+      "type": "string",
+      "description": "Book author"
+    },
+    "description": {
+      "type": "string",
+      "description": "Book description"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Book cover emoji or image URL"
+    },
+    "copyright": {
+      "type": "string",
+      "description": "Copyright information"
+    },
+    "content_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "external_link",
+        "pending_images"
+      ],
+      "default": "text",
+      "description": "Type of book content"
+    },
+    "content": {
+      "type": "string",
+      "description": "Book content (text or URL)"
+    },
+    "is_official": {
+      "type": "boolean",
+      "default": false,
+      "description": "Official book status - requires staff approval"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Staff approval status"
+    },
+    "color": {
+      "type": "string",
+      "default": "from-blue-500 to-purple-500",
+      "description": "Gradient color for book card"
+    }
+  },
+  "required": [
+    "title",
+    "author"
+  ]
+}

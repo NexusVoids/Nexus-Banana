@@ -1,0 +1,47 @@
+{
+  "name": "ChatMessage",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "Display name of the sender"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email of sender"
+    },
+    "message": {
+      "type": "string",
+      "description": "The chat message content"
+    },
+    "channel": {
+      "type": "string",
+      "default": "general",
+      "description": "Chat channel name"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Roles of the sender at time of message",
+      "default": [
+        "Member"
+      ]
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Optional image attached to message"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Soft delete flag"
+    }
+  },
+  "required": [
+    "username",
+    "message",
+    "user_email"
+  ]
+}

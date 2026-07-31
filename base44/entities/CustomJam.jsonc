@@ -1,0 +1,27 @@
+{
+  "name": "CustomJam",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the jam"
+    },
+    "youtube_url": {
+      "type": "string",
+      "description": "YouTube URL of the jam"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether everyone can see this jam"
+    },
+    "creator_name": {
+      "type": "string",
+      "description": "Display name of the creator"
+    }
+  },
+  "required": [
+    "title",
+    "youtube_url"
+  ]
+}

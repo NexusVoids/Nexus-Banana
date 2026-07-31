@@ -1,0 +1,31 @@
+{
+  "name": "WebGame",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Game title"
+    },
+    "creator_name": {
+      "type": "string",
+      "description": "Creator display name"
+    },
+    "html_content": {
+      "type": "string",
+      "description": "Full HTML content of the game"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the game"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the game is publicly visible"
+    }
+  },
+  "required": [
+    "title",
+    "html_content"
+  ]
+}

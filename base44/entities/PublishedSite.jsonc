@@ -1,0 +1,44 @@
+{
+  "name": "PublishedSite",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Site title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug (unique identifier)"
+    },
+    "html_content": {
+      "type": "string",
+      "description": "Full HTML content of the published site"
+    },
+    "creator_name": {
+      "type": "string",
+      "description": "Creator display name"
+    },
+    "creator_id": {
+      "type": "string",
+      "description": "Local user ID"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the site is publicly listed"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description"
+    },
+    "template_used": {
+      "type": "string",
+      "description": "Template name if any"
+    }
+  },
+  "required": [
+    "title",
+    "slug",
+    "html_content"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "NexusBanan.net: The Unlocked Learning Zone",
+  "site": {
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "serveCommand": "npm run dev",
+    "outputDirectory": "./dist"
+  }
+}

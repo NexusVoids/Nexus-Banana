@@ -1,0 +1,121 @@
+{
+  "name": "UserProfile",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "Display name / username"
+    },
+    "real_name": {
+      "type": "string",
+      "description": "User's real full name"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "Email of the user this profile belongs to"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "URL to uploaded profile picture"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short bio / description of the user"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of role names assigned to this user",
+      "default": [
+        "Member"
+      ]
+    },
+    "custom_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of custom role IDs assigned to this user",
+      "default": []
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of badge IDs awarded by staff",
+      "default": []
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of warning reasons issued by staff",
+      "default": []
+    },
+    "banan_bucks": {
+      "type": "number",
+      "default": 0,
+      "description": "BananBucks balance"
+    },
+    "message_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Total messages sent, for Chatter Bug badge"
+    },
+    "is_banned": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this user is banned"
+    },
+    "ban_expires": {
+      "type": "string",
+      "description": "ISO date when ban expires (null = permanent)"
+    },
+    "ban_reason": {
+      "type": "string",
+      "description": "Reason for ban"
+    },
+    "timeout_until": {
+      "type": "string",
+      "description": "ISO date when timeout expires"
+    },
+    "flagged_name": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether username has been flagged as inappropriate"
+    }
+  },
+  "required": [
+    "user_email"
+  ],
+  "rls": {
+    "create": {},
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "data.user_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "Executive Team"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
